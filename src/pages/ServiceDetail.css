@@ -1,0 +1,69 @@
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.sub-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  border: 1px solid var(--gray-100);
+  transition: all .3s ease;
+  text-align: center;
+}
+.sub-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--blue-300); }
+.sub-icon { font-size: 2.2rem; margin-bottom: 14px; }
+.sub-name { font-size: 0.95rem; font-weight: 700; color: var(--blue-900); margin-bottom: 8px; }
+.sub-desc { font-size: 0.83rem; color: var(--gray-600); line-height: 1.5; }
+
+.sd-inner {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: start;
+}
+
+.sd-contact-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  border: 1px solid var(--gray-100);
+  box-shadow: var(--shadow-lg);
+  position: sticky;
+  top: 100px;
+}
+.sdc-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--blue-100);
+  color: var(--blue-600);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 16px;
+}
+.sd-contact-card h3 { font-size: 1.4rem; color: var(--blue-900); margin-bottom: 12px; }
+.sd-contact-card p { color: var(--gray-600); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.6; }
+.sdc-items { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+.sdc-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  transition: background .2s;
+}
+.sdc-item:hover { background: var(--blue-50); }
+.sdc-item div { display: flex; flex-direction: column; }
+.sdc-item strong { font-size: 0.88rem; color: var(--blue-900); }
+.sdc-item span { font-size: 0.82rem; color: var(--gray-600); }
+
+@media (max-width: 1024px) {
+  .sub-grid { grid-template-columns: repeat(2, 1fr); }
+  .sd-inner { grid-template-columns: 1fr; }
+  .sd-contact-card { position: static; }
+}
+@media (max-width: 640px) { .sub-grid { grid-template-columns: 1fr; } }

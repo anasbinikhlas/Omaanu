@@ -1,0 +1,17 @@
+.blog-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
+.blog-full-card { background: white; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-100); display: flex; flex-direction: column; transition: all .3s ease; }
+.blog-full-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+.blog-full-img { height: 200px; overflow: hidden; flex-shrink: 0; }
+.blog-full-body { padding: 28px; display: flex; flex-direction: column; flex: 1; }
+.blog-full-title { font-size: 1.1rem; font-weight: 700; color: var(--blue-900); margin-bottom: 10px; line-height: 1.4; }
+.blog-full-excerpt { font-size: 0.87rem; color: var(--gray-600); line-height: 1.7; margin-bottom: 20px; }
+.blog-read-more { display: flex; align-items: center; gap: 6px; color: var(--blue-600); font-weight: 700; font-family: var(--font-display); font-size: 0.85rem; transition: gap .2s; }
+.blog-read-more:hover { gap: 10px; }
+.blog-cat-badge { display: inline-block; padding: 4px 12px; background: var(--blue-100); color: var(--blue-600); border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
+
+.subscribe-row { display: flex; gap: 12px; }
+.subscribe-input { flex: 1; padding: 13px 18px; background: rgba(255,255,255,.1); border: 1.5px solid rgba(255,255,255,.2); border-radius: var(--radius); color: white; font-family: var(--font-body); font-size: 0.9rem; outline: none; }
+.subscribe-input::placeholder { color: rgba(255,255,255,.4); }
+.subscribe-input:focus { border-color: var(--blue-300); }
+
+@media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } .subscribe-row { flex-direction: column; } }
