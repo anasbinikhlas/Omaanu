@@ -3,7 +3,7 @@ name: Deploy React Website to Hostinger Subdomain
 on:
   push:
     branches:
-      - main  # Change to 'master' if your main branch is named master
+      - main  # Change to 'master' if your default branch is master
 
 jobs:
   build-and-deploy:
@@ -31,5 +31,5 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /public_html/newsite/
-        local-dir: ./dist/
+        server-dir: ./newsite/  # Relative path to isolate the upload
+        local-dir: ./dist/      # Uploads ONLY the compiled assets
