@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v5
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -24,10 +24,10 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Show Build Files
+      - name: Verify Build Output
         run: ls -la dist
 
-      - name: FTP Deploy
+      - name: Deploy to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftp.omaanu.com
@@ -36,4 +36,4 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./dist/
-          server-dir: /domains/omaanu.com/public_html/newsite/
+          server-dir: /public_html/newsite/
