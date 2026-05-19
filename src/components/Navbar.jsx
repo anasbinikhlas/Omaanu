@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown, MessageCircle, Phone } from 'lucide-react'
+import logoImage from '../assets/Omaanu Logo.png'
 import './Navbar.css'
 
 const designLinks = [
@@ -93,10 +94,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link to="/" className="nav-logo">
-            <div className="logo-mark"><span>O</span></div>
-            <div className="logo-words">
-              <span className="logo-name">omaanu</span><span className="logo-tld">.com</span>
-            </div>
+            <img src={logoImage} alt="Omaanu Logo" className="logo-img" />
           </Link>
 
           {/* Desktop links */}

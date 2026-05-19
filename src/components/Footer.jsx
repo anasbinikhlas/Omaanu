@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
+import logoImage from '../assets/Omaanu Logo.png'
 import './Footer.css'
 
 export default function Footer() {
@@ -28,8 +29,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <div className="logo-mark">O</div>
-              <span className="logo-text">omaanu<span>.com</span></span>
+              <img src={logoImage} alt="Omaanu Logo" className="footer-logo-img" />
             </Link>
             <p className="footer-desc">
               A full-service digital agency delivering design, development, marketing, and animation solutions that drive real business growth.
@@ -85,16 +85,16 @@ export default function Footer() {
           {/* Newsletter */}
           <div className="footer-col">
             <h4 className="footer-col-title">Stay Updated</h4>
-            <p style={{ color: 'rgba(255,255,255,.6)', fontSize: '0.88rem', marginBottom: 16, lineHeight: 1.6 }}>
+            <p style={{ color: 'var(--gray-600)', fontSize: '0.88rem', marginBottom: 16, lineHeight: 1.6 }}>
               Subscribe to our newsletter for the latest tips, trends, and digital insights.
             </p>
             <div className="footer-newsletter">
               <input type="email" placeholder="Your email address" className="footer-input" />
               <button className="footer-subscribe">Subscribe</button>
             </div>
-            <div style={{ marginTop: 24, padding: 16, background: 'rgba(255,255,255,.06)', borderRadius: 12, border: '1px solid rgba(255,255,255,.1)' }}>
-              <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,.5)', marginBottom: 8 }}>TRUSTED BY</div>
-              <div style={{ display:'flex', gap:12, flexWrap:'wrap', alignItems:'center', fontSize:'0.82rem', color:'rgba(255,255,255,.7)', fontWeight:600 }}>
+            <div style={{ marginTop: 24, padding: 16, background: 'var(--gray-50)', borderRadius: 12, border: '1px solid var(--gray-200)' }}>
+              <div style={{ fontSize: '0.78rem', color: 'var(--blue-900)', marginBottom: 8 }}>TRUSTED BY</div>
+              <div style={{ display:'flex', gap:12, flexWrap:'wrap', alignItems:'center', fontSize:'0.82rem', color:'var(--blue-900)', fontWeight:600 }}>
                 <span>Slack</span>
                 <span style={{opacity:.3}}>|</span>
                 <span>Dropbox</span>
@@ -113,8 +113,8 @@ export default function Footer() {
         <div className="container footer-bottom-inner">
           <span>© {new Date().getFullYear()} omaanu.com · All rights reserved.</span>
           <div style={{ display:'flex', gap:20 }}>
-            <Link to="/privacy-policy" style={{color:'rgba(255,255,255,.5)', fontSize:'0.82rem', transition:'color .2s'}} onMouseOver={e=>e.target.style.color='#fff'} onMouseOut={e=>e.target.style.color='rgba(255,255,255,.5)'}>Privacy Policy</Link>
-            <Link to="/contact" style={{color:'rgba(255,255,255,.5)', fontSize:'0.82rem', transition:'color .2s'}} onMouseOver={e=>e.target.style.color='#fff'} onMouseOut={e=>e.target.style.color='rgba(255,255,255,.5)'}>Contact</Link>
+            <Link to="/privacy-policy" style={{color:'var(--blue-900)', fontSize:'0.82rem', transition:'color .2s'}} onMouseOver={e=>e.target.style.color='var(--blue-600)'} onMouseOut={e=>e.target.style.color='var(--blue-900)'}>Privacy Policy</Link>
+            <Link to="/contact" style={{color:'var(--blue-900)', fontSize:'0.82rem', transition:'color .2s'}} onMouseOver={e=>e.target.style.color='var(--blue-600)'} onMouseOut={e=>e.target.style.color='var(--blue-900)'}>Contact</Link>
           </div>
         </div>
       </div>
