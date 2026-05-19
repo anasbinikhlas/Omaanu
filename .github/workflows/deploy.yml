@@ -34,3 +34,4 @@ jobs:
         server-dir: ./
         local-dir: ./dist/
         port: 21
+        protocol: ftp # 👈 Forces plain FTP to match Hostinger's jailed user setup
