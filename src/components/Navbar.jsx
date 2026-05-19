@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown, MessageCircle, Phone } from 'lucide-react'
-import logoImage from '../assets/Omaanu logo.png'
+import logoImage from '../assets/omaanu logo.png'
 import './Navbar.css'
 
 const designLinks = [

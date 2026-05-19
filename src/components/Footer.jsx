@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
-import logoImage from '../assets/Omaanu Logo.png'
+import logoImage from '../assets/omaanu logo.png'
 import './Footer.css'
 
 export default function Footer() {
@@ -74,7 +74,7 @@ export default function Footer() {
               <li><Link to="/privacy-policy" className="footer-link"><ArrowRight size={12} /> Privacy Policy</Link></li>
             </ul>
 
-            <h4 className="footer-col-title" style={{marginTop:28}}>Website</h4>
+            <h4 className="footer-col-title" style={{ marginTop: 28 }}>Website</h4>
             <ul>
               <li><Link to="/services/web-development" className="footer-link"><ArrowRight size={12} /> Shopify</Link></li>
               <li><Link to="/services/web-development" className="footer-link"><ArrowRight size={12} /> WordPress</Link></li>
@@ -94,13 +94,13 @@ export default function Footer() {
             </div>
             <div style={{ marginTop: 24, padding: 16, background: 'var(--gray-50)', borderRadius: 12, border: '1px solid var(--gray-200)' }}>
               <div style={{ fontSize: '0.78rem', color: 'var(--blue-900)', marginBottom: 8 }}>TRUSTED BY</div>
-              <div style={{ display:'flex', gap:12, flexWrap:'wrap', alignItems:'center', fontSize:'0.82rem', color:'var(--blue-900)', fontWeight:600 }}>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center', fontSize: '0.82rem', color: 'var(--blue-900)', fontWeight: 600 }}>
                 <span>Slack</span>
-                <span style={{opacity:.3}}>|</span>
+                <span style={{ opacity: .3 }}>|</span>
                 <span>Dropbox</span>
-                <span style={{opacity:.3}}>|</span>
+                <span style={{ opacity: .3 }}>|</span>
                 <span>Shopify</span>
-                <span style={{opacity:.3}}>|</span>
+                <span style={{ opacity: .3 }}>|</span>
                 <span>Google</span>
               </div>
             </div>
@@ -112,9 +112,9 @@ export default function Footer() {
       <div className="footer-bottom">
         <div className="container footer-bottom-inner">
           <span>© {new Date().getFullYear()} omaanu.com · All rights reserved.</span>
-          <div style={{ display:'flex', gap:20 }}>
-            <Link to="/privacy-policy" style={{color:'var(--blue-900)', fontSize:'0.82rem', transition:'color .2s'}} onMouseOver={e=>e.target.style.color='var(--blue-600)'} onMouseOut={e=>e.target.style.color='var(--blue-900)'}>Privacy Policy</Link>
-            <Link to="/contact" style={{color:'var(--blue-900)', fontSize:'0.82rem', transition:'color .2s'}} onMouseOver={e=>e.target.style.color='var(--blue-600)'} onMouseOut={e=>e.target.style.color='var(--blue-900)'}>Contact</Link>
+          <div style={{ display: 'flex', gap: 20 }}>
+            <Link to="/privacy-policy" style={{ color: 'var(--blue-900)', fontSize: '0.82rem', transition: 'color .2s' }} onMouseOver={e => e.target.style.color = 'var(--blue-600)'} onMouseOut={e => e.target.style.color = 'var(--blue-900)'}>Privacy Policy</Link>
+            <Link to="/contact" style={{ color: 'var(--blue-900)', fontSize: '0.82rem', transition: 'color .2s' }} onMouseOver={e => e.target.style.color = 'var(--blue-600)'} onMouseOut={e => e.target.style.color = 'var(--blue-900)'}>Contact</Link>
           </div>
         </div>
       </div>
