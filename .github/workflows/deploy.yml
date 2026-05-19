@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # 👈 Opts into Node 24 cleanly to silence the runner warning
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build-and-deploy:
@@ -15,13 +15,13 @@ jobs:
     
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v4.2.2 # 👈 Updated patch version
+      uses: actions/checkout@v4 # Uses the primary tracking tag
 
     - name: 🟢 Set up Node.js
-      uses: actions/setup-node@v4.1.0 # 👈 Updated patch version
+      uses: actions/setup-node@v4
       with:
-        node-version: 24 # 👈 Matches the modern runner runtime environment
-        cache: 'npm'
+        node-version: 24
+        # 💡 Removed the cache line to bypass the broken GitHub cache service 400 error
 
     - name: 🛠️ Install dependencies and Build
       run: |
