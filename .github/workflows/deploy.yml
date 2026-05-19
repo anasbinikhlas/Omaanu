@@ -1,4 +1,4 @@
-name: 🏗️ Build and 🚀 Deploy React App
+name: 🚀 Deploy React App
 
 on:
   push:
@@ -13,21 +13,17 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
 
-      - name: 🟢 Setup Node.js
-        uses: actions/setup-node@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
 
-      - name: 📦 Install Dependencies
-        run: npm install
+      - run: npm install
 
-      - name: 🏗️ Build React App
-        run: npm run build
+      - run: npm run build
 
-      - name: 🚀 Deploy via FTP
+      - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
