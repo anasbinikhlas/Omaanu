@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
-import logoImage from '../assets/omaanu logo.png'
+import logoImage from '../assets/omaanulogo.png'
 import './Footer.css'
 
 export default function Footer() {
@@ -29,7 +29,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <img src={logoImage} alt="Omaanu Logo" className="footer-logo-img" />
+              <img src={logoImage} alt="omaanulogo" className="footer-logo-img" />
             </Link>
             <p className="footer-desc">
               A full-service digital agency delivering design, development, marketing, and animation solutions that drive real business growth.
