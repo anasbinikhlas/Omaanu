@@ -11,6 +11,7 @@ import About from './pages/About'
 import ServiceDetail from './pages/ServiceDetail'
 import Website from './pages/Website'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import FloatingButtons from './components/FloatingButtons'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
+      <FloatingButtons />
     </BrowserRouter>
   )
 }

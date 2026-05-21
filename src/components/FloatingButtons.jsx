@@ -13,7 +13,7 @@ export default function FloatingButtons() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   return (
-    <div className={`fab-stack${visible ? ' fab-stack--visible' : ''}`}>
+    <div className="fab-stack">
 
       {/* WhatsApp */}
       <a
@@ -30,10 +30,9 @@ export default function FloatingButtons() {
         <span className="fab-tooltip">WhatsApp Us</span>
       </a>
 
-      {/* Back to Top */}
       <button
         onClick={scrollToTop}
-        className="fab fab--top"
+        className={`fab fab--top${visible ? ' fab--top-visible' : ''}`}
         aria-label="Back to top"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
