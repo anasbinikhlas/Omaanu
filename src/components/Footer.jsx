@@ -42,7 +42,7 @@ export default function Footer() {
             <div className="footer-contact-list">
               <a href="tel:+923392103555" className="footer-contact-item"><Phone size={14} /> +92 339 2103555</a>
               <a href="mailto:reachout@omaanu.com" className="footer-contact-item"><Mail size={14} /> reachout@omaanu.com</a>
-              <div className="footer-contact-item"><MapPin size={14} /> 🇵🇰 Pakistan &nbsp;·&nbsp; 🇬🇧 UK &nbsp;·&nbsp; 🇦🇪 UAE</div>
+              <div className="footer-contact-item"><MapPin size={14} /> <img src="https://flagcdn.com/w20/pk.png" width="16" alt="PK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Pakistan &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/gb.png" width="16" alt="UK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> UK &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/ae.png" width="16" alt="UAE" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> UAE</div>
             </div>
           </div>
 

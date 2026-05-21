@@ -58,7 +58,7 @@ export default function Contact() {
                 <div className="contact-card-icon"><MapPin size={22} /></div>
                 <div>
                   <strong>Our Offices</strong>
-                  <span>🇵🇰 Pakistan &nbsp;·&nbsp; 🇬🇧 UK &nbsp;·&nbsp; 🇦🇪 UAE</span>
+                  <span><img src="https://flagcdn.com/w20/pk.png" width="16" alt="PK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Pakistan &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/gb.png" width="16" alt="UK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> UK &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/ae.png" width="16" alt="UAE" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> UAE</span>
                 </div>
               </div>
               <div className="contact-card">
@@ -143,7 +143,7 @@ export default function Contact() {
       <div className="map-placeholder">
         <div className="map-overlay">
           <MapPin size={32} color="white" />
-          <h4>🇵🇰 Pakistan &nbsp;·&nbsp; 🇬🇧 United Kingdom &nbsp;·&nbsp; 🇦🇪 UAE</h4>
+          <h4><img src="https://flagcdn.com/w20/pk.png" width="16" alt="PK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Pakistan &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/gb.png" width="16" alt="UK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> United Kingdom &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/ae.png" width="16" alt="UAE" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> UAE</h4>
           <p>International offices serving clients worldwide</p>
         </div>
       </div>

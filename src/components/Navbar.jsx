@@ -78,7 +78,7 @@ export default function Navbar() {
           <div className="ts-left">
             <a href="tel:+923392103555" className="ts-item"><Phone size={11} /> +92 339 2103555</a>
             <span className="ts-div" />
-            <span className="ts-item">🇵🇰 Pakistan &nbsp;·&nbsp; 🇬🇧 UK &nbsp;·&nbsp; 🇦🇪 UAE</span>
+            <span className="ts-item"><img src="https://flagcdn.com/w20/pk.png" width="16" alt="PK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Pakistan &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/gb.png" width="16" alt="UK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> UK &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/ae.png" width="16" alt="UAE" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> UAE</span>
           </div>
           <div className="ts-right">
             <a href="https://www.facebook.com/omaanudotcom" target="_blank" rel="noopener noreferrer" className="ts-social">f</a>
