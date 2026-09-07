@@ -25,48 +25,40 @@ jobs:
           npm ci
           npm run build
 
-      - name: 🧹 Backup Old WordPress Files on Server
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST || '46.28.45.74' }}
-          username: ${{ secrets.SSH_USER || 'u408469790' }}
-          password: ${{ secrets.SSH_PASS || secrets.SSH_PASSWORD }}
-          key: ${{ secrets.SSH_KEY || secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT || 65002 }}
-          script: |
-            TARGET="/home/u408469790/domains/omaanu.com/public_html"
-            [ ! -d "$TARGET" ] && TARGET="/home/u408469790/public_html"
-            cd "$TARGET" || exit 0
-            # If WordPress files exist, move them to _wp_backup
-            if [ -f "wp-login.php" ] || [ -d "wp-admin" ] || [ -f "index.php" ]; then
+      - name: 🚀 Deploy to Hostinger via Rsync & SSH
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST || '46.28.45.74' }}
+          SSH_PORT: ${{ secrets.SSH_PORT || '65002' }}
+          SSH_USER: ${{ secrets.SSH_USER || 'u408469790' }}
+          SSH_PASS: ${{ secrets.SSH_PASS || secrets.SSH_PASSWORD }}
+        run: |
+          sudo apt-get update -y && sudo apt-get install -y sshpass rsync
+
+          TARGET="/home/$SSH_USER/domains/omaanu.com/public_html"
+
+          echo "Backing up old WordPress files if present..."
+          sshpass -p "$SSH_PASS" ssh -p "$SSH_PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$SSH_USER@$SSH_HOST" "
+            DIR=\"$TARGET\"
+            [ ! -d \"\$DIR\" ] && DIR=\"/home/$SSH_USER/public_html\"
+            cd \"\$DIR\" || exit 0
+            if [ -f \"wp-login.php\" ] || [ -d \"wp-admin\" ] || [ -f \"index.php\" ]; then
               mkdir -p _wp_backup
               mv wp-* index.php _wp_backup/ 2>/dev/null || true
             fi
+          " || echo "Remote backup step finished."
 
-      - name: 🚀 Upload Build Files via SCP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST || '46.28.45.74' }}
-          username: ${{ secrets.SSH_USER || 'u408469790' }}
-          password: ${{ secrets.SSH_PASS || secrets.SSH_PASSWORD }}
-          key: ${{ secrets.SSH_KEY || secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT || 65002 }}
-          source: "dist/*,dist/.htaccess"
-          target: "/home/u408469790/domains/omaanu.com/public_html"
-          strip_components: 1
-          overwrite: true
+          echo "Syncing dist build to $TARGET..."
+          sshpass -p "$SSH_PASS" rsync -avz \
+            -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
+            ./dist/ "$SSH_USER@$SSH_HOST:$TARGET/"
 
-      - name: 🔒 Set Permissions
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST || '46.28.45.74' }}
-          username: ${{ secrets.SSH_USER || 'u408469790' }}
-          password: ${{ secrets.SSH_PASS || secrets.SSH_PASSWORD }}
-          key: ${{ secrets.SSH_KEY || secrets.SSH_PRIVATE_KEY }}
-          port: ${{ secrets.SSH_PORT || 65002 }}
-          script: |
-            TARGET="/home/u408469790/domains/omaanu.com/public_html"
-            [ ! -d "$TARGET" ] && TARGET="/home/u408469790/public_html"
-            cd "$TARGET" || exit 0
+          echo "Setting proper permissions on remote server..."
+          sshpass -p "$SSH_PASS" ssh -p "$SSH_PORT" -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null "$SSH_USER@$SSH_HOST" "
+            DIR=\"$TARGET\"
+            [ ! -d \"\$DIR\" ] && DIR=\"/home/$SSH_USER/public_html\"
+            cd \"\$DIR\" || exit 0
             chmod 644 index.html .htaccess 2>/dev/null || true
             chmod -R 755 assets 2>/dev/null || true
+          " || true
+
+          echo "✅ Deployment completed successfully!"
