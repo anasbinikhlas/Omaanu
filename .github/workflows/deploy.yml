@@ -30,7 +30,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST || '46.28.45.74' }}
           username: ${{ secrets.SSH_USER || 'u408469790' }}
-          password: ${{ secrets.SSH_PASSWORD || secrets.SSH_PASS }}
+          password: ${{ secrets.SSH_PASS || secrets.SSH_PASSWORD }}
           key: ${{ secrets.SSH_KEY || secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT || 65002 }}
           script: |
@@ -48,7 +48,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST || '46.28.45.74' }}
           username: ${{ secrets.SSH_USER || 'u408469790' }}
-          password: ${{ secrets.SSH_PASSWORD || secrets.SSH_PASS }}
+          password: ${{ secrets.SSH_PASS || secrets.SSH_PASSWORD }}
           key: ${{ secrets.SSH_KEY || secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT || 65002 }}
           source: "dist/*,dist/.htaccess"
@@ -61,7 +61,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST || '46.28.45.74' }}
           username: ${{ secrets.SSH_USER || 'u408469790' }}
-          password: ${{ secrets.SSH_PASSWORD || secrets.SSH_PASS }}
+          password: ${{ secrets.SSH_PASS || secrets.SSH_PASSWORD }}
           key: ${{ secrets.SSH_KEY || secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT || 65002 }}
           script: |
