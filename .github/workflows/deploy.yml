@@ -1,36 +1,72 @@
-name: Deploy React Website to Hostinger Subdomain
+name: Deploy React Website via SSH to Omaanu.com
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
-    name: 🏗️ Build and 🚀 Deploy React App
+    name: 🏗️ Build & 🚀 Deploy via SSH
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v4
+      - name: 🚚 Checkout Code
+        uses: actions/checkout@v4
 
-    - name: 🟢 Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
+      - name: 🟢 Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
-    - name: 🛠️ Install dependencies and Build
-      run: |
-        npm ci
-        npm run build
+      - name: 🛠️ Install Dependencies & Build
+        run: |
+          npm ci
+          npm run build
 
-    - name: 📂 Sync files via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: ./
-        local-dir: ./dist/
-        port: 21
-        protocol: ftp
+      - name: 🧹 Backup Old WordPress Files on Server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST || '46.28.45.74' }}
+          username: ${{ secrets.SSH_USER || 'u408469790' }}
+          password: ${{ secrets.SSH_PASSWORD || secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY || secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 65002 }}
+          script: |
+            TARGET="/home/u408469790/domains/omaanu.com/public_html"
+            [ ! -d "$TARGET" ] && TARGET="/home/u408469790/public_html"
+            cd "$TARGET" || exit 0
+            # If WordPress files exist, move them to _wp_backup
+            if [ -f "wp-login.php" ] || [ -d "wp-admin" ] || [ -f "index.php" ]; then
+              mkdir -p _wp_backup
+              mv wp-* index.php _wp_backup/ 2>/dev/null || true
+            fi
+
+      - name: 🚀 Upload Build Files via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST || '46.28.45.74' }}
+          username: ${{ secrets.SSH_USER || 'u408469790' }}
+          password: ${{ secrets.SSH_PASSWORD || secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY || secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 65002 }}
+          source: "dist/*,dist/.htaccess"
+          target: "/home/u408469790/domains/omaanu.com/public_html"
+          strip_components: 1
+          overwrite: true
+
+      - name: 🔒 Set Permissions
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST || '46.28.45.74' }}
+          username: ${{ secrets.SSH_USER || 'u408469790' }}
+          password: ${{ secrets.SSH_PASSWORD || secrets.SSH_PASS }}
+          key: ${{ secrets.SSH_KEY || secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 65002 }}
+          script: |
+            TARGET="/home/u408469790/domains/omaanu.com/public_html"
+            [ ! -d "$TARGET" ] && TARGET="/home/u408469790/public_html"
+            cd "$TARGET" || exit 0
+            chmod 644 index.html .htaccess 2>/dev/null || true
+            chmod -R 755 assets 2>/dev/null || true
