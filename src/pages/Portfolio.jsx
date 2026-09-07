@@ -22,6 +22,18 @@ export default function Portfolio() {
 
       <section style={{ padding: '80px 0', background: 'var(--gray-50)' }}>
         <div className="container">
+          {/* Systems Callout Banner */}
+          <div className="portfolio-systems-banner">
+            <div className="psb-content">
+              <span className="psb-badge">⚡ Turnkey SaaS Software</span>
+              <h3>Looking for Our Ready-to-Deploy Business Systems?</h3>
+              <p>Explore Aura Gold, Pro Inspect, Invoice Pro, Travel Agent Suite, and Pro Construct on monthly/annual cloud subscriptions with 24/7 support.</p>
+            </div>
+            <Link to="/systems" className="btn-white" style={{ whiteSpace: 'nowrap' }}>
+              View Business Systems <ArrowRight size={16} />
+            </Link>
+          </div>
+
           <div className="portfolio-filters">
             {allCats.map(c => (
               <button key={c} className={`filter-btn${cat === c ? ' active' : ''}`} onClick={() => setCat(c)}>{c}</button>

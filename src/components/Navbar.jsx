@@ -171,6 +171,10 @@ export default function Navbar() {
               </div>
             </div>
 
+            <Link to="/systems" className={`nl${location.pathname === '/systems' ? ' nl--on' : ''}`}>
+              Systems <span className="nav-badge-new">SaaS</span>
+            </Link>
+
             <Link to="/portfolio" className={`nl${location.pathname === '/portfolio' ? ' nl--on' : ''}`}>Portfolio</Link>
             <Link to="/about" className={`nl${location.pathname === '/about' ? ' nl--on' : ''}`}>About</Link>
             <Link to="/blog" className={`nl${location.pathname === '/blog' ? ' nl--on' : ''}`}>Blog</Link>
@@ -192,6 +196,10 @@ export default function Navbar() {
       {/* ── Mobile menu ── */}
       <div className={`mob-menu${menuOpen ? ' mob-menu--open' : ''}`}>
         <Link to="/" className="mob-link">🏠 Home</Link>
+
+        <Link to="/systems" className="mob-link">
+          ⚡ Systems <span className="mob-badge-new">SaaS</span>
+        </Link>
 
         <div className="mob-group">
           <button className="mob-link mob-toggle" onClick={() => setMobileServices(v => !v)}>

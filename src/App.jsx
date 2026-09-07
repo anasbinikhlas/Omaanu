@@ -11,6 +11,7 @@ import About from './pages/About'
 import ServiceDetail from './pages/ServiceDetail'
 import Website from './pages/Website'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import Systems from './pages/Systems'
 import FloatingButtons from './components/FloatingButtons'
 
 function ScrollToTop() {
@@ -26,6 +27,7 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/systems" element={<Systems />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:slug" element={<ServiceDetail />} />
         <Route path="/portfolio" element={<Portfolio />} />

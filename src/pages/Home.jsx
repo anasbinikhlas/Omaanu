@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Star, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react'
 import HeroSlider from '../components/HeroSlider'
+import SaasPromoModal from '../components/SaasPromoModal'
 import { services, portfolioItems, testimonials, stats, blogPosts } from '../data/services'
 import './Home.css'
 
@@ -234,6 +235,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SaaS Promotional Popup */}
+      <SaasPromoModal />
     </main>
   )
 }

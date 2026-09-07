@@ -14,5 +14,38 @@
 .portfolio-tag { padding: 4px 10px; background: rgba(255,255,255,.15); border-radius: 999px; font-size: 0.72rem; color: white; font-weight: 600; }
 .port-info { padding: 20px 24px; }
 
+/* Systems Callout Banner */
+.portfolio-systems-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: linear-gradient(135deg, #0d2045 0%, #1565c0 100%);
+  color: #fff;
+  padding: 28px 36px;
+  border-radius: var(--radius-xl);
+  margin-bottom: 48px;
+  box-shadow: 0 10px 30px rgba(21, 101, 192, 0.2);
+}
+.psb-content { max-width: 700px; }
+.psb-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  color: #93c5fd;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.psb-content h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 6px; color: #fff; }
+.psb-content p { color: rgba(255, 255, 255, 0.85); font-size: 0.92rem; line-height: 1.5; }
+
+@media (max-width: 800px) {
+  .portfolio-systems-banner { flex-direction: column; text-align: center; }
+}
+
 @media (max-width: 1024px) { .port-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 640px)  { .port-grid { grid-template-columns: 1fr; } }

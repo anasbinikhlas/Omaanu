@@ -67,6 +67,7 @@ export default function Footer() {
             <h4 className="footer-col-title">Quick Links</h4>
             <ul>
               <li><Link to="/" className="footer-link"><ArrowRight size={12} /> Home</Link></li>
+              <li><Link to="/systems" className="footer-link"><ArrowRight size={12} /> Business Systems (SaaS)</Link></li>
               <li><Link to="/about" className="footer-link"><ArrowRight size={12} /> About Us</Link></li>
               <li><Link to="/portfolio" className="footer-link"><ArrowRight size={12} /> Portfolio</Link></li>
               <li><Link to="/blog" className="footer-link"><ArrowRight size={12} /> Blog</Link></li>
@@ -74,11 +75,13 @@ export default function Footer() {
               <li><Link to="/privacy-policy" className="footer-link"><ArrowRight size={12} /> Privacy Policy</Link></li>
             </ul>
 
-            <h4 className="footer-col-title" style={{ marginTop: 28 }}>Website</h4>
+            <h4 className="footer-col-title" style={{ marginTop: 28 }}>Subscription Systems</h4>
             <ul>
-              <li><Link to="/services/web-development" className="footer-link"><ArrowRight size={12} /> Shopify</Link></li>
-              <li><Link to="/services/web-development" className="footer-link"><ArrowRight size={12} /> WordPress</Link></li>
-              <li><Link to="/services/web-development" className="footer-link"><ArrowRight size={12} /> Web Development</Link></li>
+              <li><Link to="/systems" className="footer-link"><ArrowRight size={12} /> Aura Gold (Jewelry)</Link></li>
+              <li><Link to="/systems" className="footer-link"><ArrowRight size={12} /> Pro Inspect (Automotive)</Link></li>
+              <li><Link to="/systems" className="footer-link"><ArrowRight size={12} /> Invoice Pro (Billing)</Link></li>
+              <li><Link to="/systems" className="footer-link"><ArrowRight size={12} /> Travel Agent Suite</Link></li>
+              <li><Link to="/systems" className="footer-link"><ArrowRight size={12} /> Pro Construct</Link></li>
             </ul>
           </div>
 
