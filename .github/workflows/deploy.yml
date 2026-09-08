@@ -59,6 +59,8 @@ jobs:
             cd \"\$DIR\" || exit 0
             chmod 644 index.html .htaccess 2>/dev/null || true
             chmod -R 755 assets 2>/dev/null || true
+            rm -rf /home/$SSH_USER/lscache/* /home/$SSH_USER/.lscache/* /home/$SSH_USER/domains/omaanu.com/lscache/* 2>/dev/null || true
+            touch .htaccess index.html 2>/dev/null || true
           " || true
 
           echo "✅ Deployment completed successfully!"
