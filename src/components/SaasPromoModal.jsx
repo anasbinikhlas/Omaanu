@@ -12,10 +12,10 @@ export default function SaasPromoModal() {
     const dismissed = sessionStorage.getItem('omaanu_saas_popup_dismissed')
     if (dismissed) return
 
-    // Show after 2.5 seconds on landing page
+    // Show right after landing on website
     const timer = setTimeout(() => {
       setIsOpen(true)
-    }, 2500)
+    }, 200)
 
     return () => clearTimeout(timer)
   }, [])
