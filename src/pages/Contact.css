@@ -27,9 +27,54 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.contact-card div { display: flex; flex-direction: column; gap: 2px; }
+.contact-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
 .contact-card strong { font-size: 0.9rem; color: var(--blue-900); font-weight: 700; }
 .contact-card span  { font-size: 0.85rem; color: var(--gray-600); }
+
+/* Office Locations Chips */
+.office-chips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.office-chip {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid var(--gray-200);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--blue-900) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.office-chip:hover {
+  border-color: var(--blue-300);
+  background: var(--blue-50);
+}
+
+.office-chip-flag {
+  display: inline-block !important;
+  width: 17px;
+  height: 12px;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
 
 .why-partner { padding: 24px; background: var(--blue-50); border-radius: var(--radius-lg); }
 .why-partner h4 { font-size: 1rem; font-weight: 700; color: var(--blue-900); margin-bottom: 14px; }

@@ -42,28 +42,41 @@ export default function Contact() {
             <div className="contact-cards">
               <a href="tel:+923392103555" className="contact-card">
                 <div className="contact-card-icon"><Phone size={22} /></div>
-                <div>
+                <div className="contact-card-body">
                   <strong>Give Us a Call</strong>
                   <span>+92 339 2103555</span>
                 </div>
               </a>
               <a href="mailto:reachout@omaanu.com" className="contact-card">
                 <div className="contact-card-icon"><Mail size={22} /></div>
-                <div>
+                <div className="contact-card-body">
                   <strong>Email Us</strong>
                   <span>reachout@omaanu.com</span>
                 </div>
               </a>
               <div className="contact-card">
                 <div className="contact-card-icon"><MapPin size={22} /></div>
-                <div>
+                <div className="contact-card-body">
                   <strong>Our Offices</strong>
-                  <span><img src="https://flagcdn.com/w20/pk.png" width="16" alt="PK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> Pakistan &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/gb.png" width="16" alt="UK" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> UK &nbsp;·&nbsp; <img src="https://flagcdn.com/w20/ae.png" width="16" alt="UAE" style={{ verticalAlign: 'middle', marginRight: '4px' }} /> UAE</span>
+                  <div className="office-chips">
+                    <span className="office-chip">
+                      <img src="https://flagcdn.com/w20/pk.png" width="18" height="12" alt="Pakistan" className="office-chip-flag" />
+                      <span>Pakistan</span>
+                    </span>
+                    <span className="office-chip">
+                      <img src="https://flagcdn.com/w20/gb.png" width="18" height="12" alt="UK" className="office-chip-flag" />
+                      <span>UK</span>
+                    </span>
+                    <span className="office-chip">
+                      <img src="https://flagcdn.com/w20/ae.png" width="18" height="12" alt="UAE" className="office-chip-flag" />
+                      <span>UAE</span>
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="contact-card">
                 <div className="contact-card-icon"><Clock size={22} /></div>
-                <div>
+                <div className="contact-card-body">
                   <strong>Working Hours</strong>
                   <span>Mon–Sat · 9am–7pm PKT</span>
                 </div>

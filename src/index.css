@@ -47,6 +47,7 @@ h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height: 1.2; }
 
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
+img[src*="flagcdn.com"], .office-chip-flag { display: inline-block !important; vertical-align: middle; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 ul { list-style: none; }
 
