@@ -12,21 +12,22 @@ import ServiceDetail from './pages/ServiceDetail'
 import Website from './pages/Website'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import Systems from './pages/Systems'
+import Saas from './pages/Saas'
 import FloatingButtons from './components/FloatingButtons'
 
-function ScrollToTop() {
+function AppContent() {
   const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
-  return null
-}
 
-export default function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
   return (
-    <BrowserRouter> {/* 👈 Removed basename entirely */}
-      <ScrollToTop />
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/saas" element={<Saas />} />
         <Route path="/systems" element={<Systems />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:slug" element={<ServiceDetail />} />
@@ -39,6 +40,14 @@ export default function App() {
       </Routes>
       <Footer />
       <FloatingButtons />
+    </>
+  )
+}
+
+export default function App() {
+  return (
+    <BrowserRouter> {/* 👈 Removed basename entirely */}
+      <AppContent />
     </BrowserRouter>
   )
 }

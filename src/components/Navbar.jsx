@@ -171,8 +171,8 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link to="/systems" className={`nl${location.pathname === '/systems' ? ' nl--on' : ''}`}>
-              Systems <span className="nav-badge-new">SaaS</span>
+            <Link to="/saas" className={`nl${location.pathname === '/saas' ? ' nl--on' : ''}`}>
+              SaaS <span className="nav-badge-new">New</span>
             </Link>
 
             <Link to="/portfolio" className={`nl${location.pathname === '/portfolio' ? ' nl--on' : ''}`}>Portfolio</Link>
@@ -197,8 +197,8 @@ export default function Navbar() {
       <div className={`mob-menu${menuOpen ? ' mob-menu--open' : ''}`}>
         <Link to="/" className="mob-link">🏠 Home</Link>
 
-        <Link to="/systems" className="mob-link">
-          ⚡ Systems <span className="mob-badge-new">SaaS</span>
+        <Link to="/saas" className="mob-link">
+          ⚡ SaaS <span className="mob-badge-new">New</span>
         </Link>
 
         <div className="mob-group">
